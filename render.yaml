@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: jarvis-ollama-v3
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: OLLAMA_URL
+        sync: false
+      - key: OLLAMA_MODEL
+        value: llama3.2:3b
